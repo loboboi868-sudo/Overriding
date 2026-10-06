@@ -1,0 +1,30 @@
+namespace overridingthehorse
+{
+    public class Physicalskill : Skill
+    {
+        private float critRate;
+        public Physicalskill()
+        {
+            critRate = 0.1f;
+            Console.WriteLine("---Konstruktor Default Physical Skill---");
+        }
+
+        public Physicalskill(float critRate, string name, float power, float cost) : base (name, power, cost)
+        {
+            Console.WriteLine("---Konstruktor Parameter---");
+            this.critRate = critRate;
+        }
+        public override float CalculateDmg()
+        {
+            Console.WriteLine("[PhysicalSkill.CalculateDmg] Mennghitung damage physical dengan crit...");
+            float damage = basePower * (1 + critRate);
+            return damage;
+        }
+        public new void Display()
+        {
+            base.Display();
+            Console.WriteLine("Crit Rate    :" + (critRate = 100) + "%");
+            Console.WriteLine("==========================");
+        }
+    }
+}

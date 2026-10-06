@@ -1,0 +1,31 @@
+namespace overridingthehorse
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("---Demo Overriding---");
+            //Physical
+            Console.WriteLine("Membuat Physical Skill");
+            Physicalskill slash = new Physicalskill(0.3f, "slash", 50f, 10f);
+            slash.Display();
+            float slashDMG = slash.CalculateDmg();
+            Console.WriteLine("Damage yang dihasilkan" + slashDMG + "\n");
+
+            //Magic
+            Console.WriteLine("Membuat Magic Skill");
+            Magisskill Fireball = new Magisskill("Fire", "slash", 50f, 30f);
+            slash.Display();
+            float fireDMG = Fireball.CalculateDmg();
+            Console.WriteLine("Damage yang dihasilkan" + fireDMG + "\n");
+
+            Console.WriteLine("Membuat Heal Skill");
+            HealSkill heal = new HealSkill(30f, "slash", 50f, 20f);
+            heal.Display();
+            float healAmount = heal.CalculateDmg();
+            Console.WriteLine("Heal yang dihasilkan" + healAmount + "\n");
+
+            Console.ReadKey();
+        }
+    }
+}
